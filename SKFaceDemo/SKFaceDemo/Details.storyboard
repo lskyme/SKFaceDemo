@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--OpenCV Image View Controller-->
+        <scene sceneID="DqN-pb-sl0">
+            <objects>
+                <viewController storyboardIdentifier="OpenCVImageViewController" id="Lg8-PK-r63" customClass="OpenCVImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="co8-ul-8jX"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Za-Z0-FOf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yim-v9-WKX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2k-1q-wPK">
+                                <rect key="frame" x="8" y="28" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BFN-PK-ddF"/>
+                                </constraints>
+                                <state key="normal" title="选择图片"/>
+                                <connections>
+                                    <action selector="selectImage:" destination="Lg8-PK-r63" eventType="touchUpInside" id="BvA-b4-o10"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ztx-rq-wdr">
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b9g-wb-ctk">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="601"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="b9g-wb-ctk" secondAttribute="bottom" id="P5d-OL-taU"/>
+                                    <constraint firstAttribute="trailing" secondItem="b9g-wb-ctk" secondAttribute="trailing" id="b1s-AY-F0D"/>
+                                    <constraint firstItem="b9g-wb-ctk" firstAttribute="leading" secondItem="Ztx-rq-wdr" secondAttribute="leading" id="pGx-4i-gpE"/>
+                                    <constraint firstItem="b9g-wb-ctk" firstAttribute="top" secondItem="Ztx-rq-wdr" secondAttribute="top" id="vC9-rH-h0C"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cs8-yN-4oZ">
+                                <rect key="frame" x="78" y="28" width="62" height="30"/>
+                                <state key="normal" title="开始检测"/>
+                                <connections>
+                                    <action selector="detectImage:" destination="Lg8-PK-r63" eventType="touchUpInside" id="DQh-db-lAd"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fdO-Wo-RRU">
+                                <rect key="frame" x="204" y="28" width="163" height="29"/>
+                                <segments>
+                                    <segment title="范围标记"/>
+                                    <segment title="特征点标记"/>
+                                </segments>
+                                <connections>
+                                    <action selector="markChanged:" destination="Lg8-PK-r63" eventType="valueChanged" id="YtC-8v-aw0"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cs8-yN-4oZ" firstAttribute="leading" secondItem="C2k-1q-wPK" secondAttribute="trailing" constant="8" id="1tK-eC-h9n"/>
+                            <constraint firstItem="C2k-1q-wPK" firstAttribute="top" secondItem="co8-ul-8jX" secondAttribute="bottom" constant="8" id="BNq-Cj-M1A"/>
+                            <constraint firstItem="Ztx-rq-wdr" firstAttribute="top" secondItem="C2k-1q-wPK" secondAttribute="bottom" constant="8" id="IcG-zT-e5T"/>
+                            <constraint firstAttribute="trailing" secondItem="Ztx-rq-wdr" secondAttribute="trailing" id="IpG-0S-nPX"/>
+                            <constraint firstAttribute="trailing" secondItem="fdO-Wo-RRU" secondAttribute="trailing" constant="8" id="V6D-kk-v7C"/>
+                            <constraint firstItem="2Za-Z0-FOf" firstAttribute="top" secondItem="Ztx-rq-wdr" secondAttribute="bottom" id="WxP-hW-ebo"/>
+                            <constraint firstItem="Ztx-rq-wdr" firstAttribute="leading" secondItem="Yim-v9-WKX" secondAttribute="leading" id="ejZ-vN-Rfl"/>
+                            <constraint firstItem="Cs8-yN-4oZ" firstAttribute="top" secondItem="co8-ul-8jX" secondAttribute="bottom" constant="8" id="fQp-2g-UtF"/>
+                            <constraint firstItem="C2k-1q-wPK" firstAttribute="leading" secondItem="Yim-v9-WKX" secondAttribute="leading" constant="8" id="rtb-x6-Q9y"/>
+                            <constraint firstItem="fdO-Wo-RRU" firstAttribute="top" secondItem="co8-ul-8jX" secondAttribute="bottom" constant="8" id="xjl-V7-JUI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detectButton" destination="Cs8-yN-4oZ" id="Eeh-4u-Kn9"/>
+                        <outlet property="imageView" destination="b9g-wb-ctk" id="RF1-pU-fHH"/>
+                        <outlet property="imageViewContainer" destination="Ztx-rq-wdr" id="VEd-3I-ZFi"/>
+                        <outlet property="markSegmentControl" destination="fdO-Wo-RRU" id="qxx-s0-ZJe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BXn-PP-Ifh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1082.4000000000001" y="89.505247376311857"/>
+        </scene>
+        <!--OpenCV Video View Controller-->
+        <scene sceneID="3RG-yn-4Al">
+            <objects>
+                <viewController storyboardIdentifier="OpenCVVideoViewController" id="Z4b-ke-atH" customClass="OpenCVVideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v6J-Ox-SUD"/>
+                        <viewControllerLayoutGuide type="bottom" id="SvL-5R-gmW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XjS-g9-70u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYJ-3Q-5bP">
+                                <rect key="frame" x="8" y="28" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uPX-0a-aEV"/>
+                                </constraints>
+                                <state key="normal" title="开始追踪"/>
+                                <connections>
+                                    <action selector="tracking:" destination="Z4b-ke-atH" eventType="touchUpInside" id="jSw-KY-tHJ"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QN3-NF-rZ2">
+                                <rect key="frame" x="204" y="28" width="163" height="29"/>
+                                <segments>
+                                    <segment title="范围标记"/>
+                                    <segment title="特征点标记"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPI-6C-IpX">
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YPI-6C-IpX" firstAttribute="top" secondItem="jYJ-3Q-5bP" secondAttribute="bottom" constant="8" id="CQD-AB-gwB"/>
+                            <constraint firstAttribute="trailing" secondItem="QN3-NF-rZ2" secondAttribute="trailing" constant="8" id="Cxl-rW-WxO"/>
+                            <constraint firstItem="jYJ-3Q-5bP" firstAttribute="top" secondItem="v6J-Ox-SUD" secondAttribute="bottom" constant="8" id="IuZ-BL-K9W"/>
+                            <constraint firstItem="YPI-6C-IpX" firstAttribute="leading" secondItem="XjS-g9-70u" secondAttribute="leading" id="ekA-u8-jtd"/>
+                            <constraint firstItem="jYJ-3Q-5bP" firstAttribute="leading" secondItem="XjS-g9-70u" secondAttribute="leading" constant="8" id="nzt-sa-Tj0"/>
+                            <constraint firstAttribute="trailing" secondItem="YPI-6C-IpX" secondAttribute="trailing" id="qnL-cm-6xi"/>
+                            <constraint firstItem="QN3-NF-rZ2" firstAttribute="top" secondItem="v6J-Ox-SUD" secondAttribute="bottom" constant="8" id="wTG-yu-vco"/>
+                            <constraint firstItem="SvL-5R-gmW" firstAttribute="top" secondItem="YPI-6C-IpX" secondAttribute="bottom" id="y2b-Vk-9nC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="glViewContainer" destination="YPI-6C-IpX" id="kXx-DO-Tf7"/>
+                        <outlet property="markSegmentControl" destination="QN3-NF-rZ2" id="GLC-9g-yjg"/>
+                        <outlet property="trackingButton" destination="jYJ-3Q-5bP" id="yaf-jh-3D3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8T-z1-2ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1082.4000000000001" y="767.76611694152928"/>
+        </scene>
+        <!--Arcsoft Image View Controller-->
+        <scene sceneID="kLc-WN-WmV">
+            <objects>
+                <viewController storyboardIdentifier="ArcsoftImageViewController" id="oXt-lf-0y8" customClass="ArcsoftImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Jr-cv-Dsl"/>
+                        <viewControllerLayoutGuide type="bottom" id="u3J-0l-640"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PkC-sm-6OE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkj-om-i9v">
+                                <rect key="frame" x="8" y="28" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3d7-av-aio"/>
+                                </constraints>
+                                <state key="normal" title="选择图片"/>
+                                <connections>
+                                    <action selector="selectImage:" destination="oXt-lf-0y8" eventType="touchUpInside" id="he0-jN-1L1"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWs-eb-O1o">
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D1L-y5-AhK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="601"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="D1L-y5-AhK" secondAttribute="bottom" id="2L6-Qi-Dhe"/>
+                                    <constraint firstItem="D1L-y5-AhK" firstAttribute="top" secondItem="VWs-eb-O1o" secondAttribute="top" id="A7L-e4-kRf"/>
+                                    <constraint firstAttribute="trailing" secondItem="D1L-y5-AhK" secondAttribute="trailing" id="EPt-Vw-hXy"/>
+                                    <constraint firstItem="D1L-y5-AhK" firstAttribute="leading" secondItem="VWs-eb-O1o" secondAttribute="leading" id="GV8-g4-7xs"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptk-Yh-W0s">
+                                <rect key="frame" x="78" y="28" width="62" height="30"/>
+                                <state key="normal" title="开始检测"/>
+                                <connections>
+                                    <action selector="detectImage:" destination="oXt-lf-0y8" eventType="touchUpInside" id="U73-LV-AlI"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OEO-Fp-VyL">
+                                <rect key="frame" x="204" y="28" width="163" height="29"/>
+                                <segments>
+                                    <segment title="范围标记"/>
+                                    <segment title="特征点标记"/>
+                                </segments>
+                                <connections>
+                                    <action selector="markChanged:" destination="oXt-lf-0y8" eventType="valueChanged" id="JXN-g9-naC"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VWs-eb-O1o" firstAttribute="top" secondItem="nkj-om-i9v" secondAttribute="bottom" constant="8" id="7jW-h4-UbP"/>
+                            <constraint firstItem="Ptk-Yh-W0s" firstAttribute="top" secondItem="3Jr-cv-Dsl" secondAttribute="bottom" constant="8" id="J9Q-SP-2ta"/>
+                            <constraint firstAttribute="trailing" secondItem="VWs-eb-O1o" secondAttribute="trailing" id="PSS-TM-RsG"/>
+                            <constraint firstItem="VWs-eb-O1o" firstAttribute="leading" secondItem="PkC-sm-6OE" secondAttribute="leading" id="UAR-LI-eUG"/>
+                            <constraint firstItem="u3J-0l-640" firstAttribute="top" secondItem="VWs-eb-O1o" secondAttribute="bottom" id="UoJ-3l-yq5"/>
+                            <constraint firstItem="nkj-om-i9v" firstAttribute="leading" secondItem="PkC-sm-6OE" secondAttribute="leading" constant="8" id="ahw-Iw-9SR"/>
+                            <constraint firstAttribute="trailing" secondItem="OEO-Fp-VyL" secondAttribute="trailing" constant="8" id="rF5-aq-qJN"/>
+                            <constraint firstItem="nkj-om-i9v" firstAttribute="top" secondItem="3Jr-cv-Dsl" secondAttribute="bottom" constant="8" id="tlp-jc-FEe"/>
+                            <constraint firstItem="OEO-Fp-VyL" firstAttribute="top" secondItem="3Jr-cv-Dsl" secondAttribute="bottom" constant="8" id="wJu-xb-3OY"/>
+                            <constraint firstItem="Ptk-Yh-W0s" firstAttribute="leading" secondItem="nkj-om-i9v" secondAttribute="trailing" constant="8" id="zc5-Mj-QQY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detectButton" destination="Ptk-Yh-W0s" id="UDM-xK-Ghf"/>
+                        <outlet property="imageView" destination="D1L-y5-AhK" id="sXL-et-FaN"/>
+                        <outlet property="imageViewContainer" destination="VWs-eb-O1o" id="hB7-e8-iYs"/>
+                        <outlet property="markSegmentControl" destination="OEO-Fp-VyL" id="4Sh-Q1-Elw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k9J-uI-RFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-442.39999999999998" y="89.505247376311857"/>
+        </scene>
+        <!--Arcsoft Video View Controller-->
+        <scene sceneID="XbN-Ez-rZY">
+            <objects>
+                <viewController storyboardIdentifier="ArcsoftVideoViewController" id="qmW-sL-VCc" customClass="ArcsoftVideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AYC-U0-QGj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fpr-aA-drF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gVM-vX-BJF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5Z-p8-L8o">
+                                <rect key="frame" x="8" y="28" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cRB-rq-G9N"/>
+                                </constraints>
+                                <state key="normal" title="开始追踪"/>
+                                <connections>
+                                    <action selector="tracking:" destination="qmW-sL-VCc" eventType="touchUpInside" id="9qo-5U-Wdx"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TbT-YE-jea">
+                                <rect key="frame" x="204" y="28" width="163" height="29"/>
+                                <segments>
+                                    <segment title="范围标记"/>
+                                    <segment title="特征点标记"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZJ-pu-C3Z">
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OZJ-pu-C3Z" firstAttribute="top" secondItem="x5Z-p8-L8o" secondAttribute="bottom" constant="8" id="9NF-ia-NgX"/>
+                            <constraint firstItem="Fpr-aA-drF" firstAttribute="top" secondItem="OZJ-pu-C3Z" secondAttribute="bottom" id="I4U-H9-oju"/>
+                            <constraint firstAttribute="trailing" secondItem="TbT-YE-jea" secondAttribute="trailing" constant="8" id="NjS-9s-bct"/>
+                            <constraint firstItem="x5Z-p8-L8o" firstAttribute="top" secondItem="AYC-U0-QGj" secondAttribute="bottom" constant="8" id="Rud-CB-IoF"/>
+                            <constraint firstItem="TbT-YE-jea" firstAttribute="top" secondItem="AYC-U0-QGj" secondAttribute="bottom" constant="8" id="Wr8-cH-uaJ"/>
+                            <constraint firstItem="OZJ-pu-C3Z" firstAttribute="leading" secondItem="gVM-vX-BJF" secondAttribute="leading" id="Ypg-jA-Xit"/>
+                            <constraint firstAttribute="trailing" secondItem="OZJ-pu-C3Z" secondAttribute="trailing" id="n9y-2s-Vyf"/>
+                            <constraint firstItem="x5Z-p8-L8o" firstAttribute="leading" secondItem="gVM-vX-BJF" secondAttribute="leading" constant="8" id="xmW-M7-VIX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="glViewContainer" destination="OZJ-pu-C3Z" id="KhA-ms-4s2"/>
+                        <outlet property="markSegmentControl" destination="TbT-YE-jea" id="gNI-IP-iQb"/>
+                        <outlet property="trackingButton" destination="x5Z-p8-L8o" id="gCA-KF-SPu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JHr-qs-gzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-442" y="768"/>
+        </scene>
+    </scenes>
+</document>
