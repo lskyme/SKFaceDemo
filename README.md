@@ -1,7 +1,6 @@
 # SKFaceDemo
-###基于OpenCV和Dlib对在iOS应用中对图片或视频进行人脸识别、追踪和人脸特征点标记的研究
 
-###！！！！需要在真机下运行！！！！
+！！！！需要在真机下运行！！！！
 
 **Demo提供了两种方式：
 1、OpenCV与dlib
@@ -25,9 +24,9 @@ ArcFace需要到[虹软](https://www.arcsoft.com.cn/)注册账号和应用，再
 
 提供人脸区域标记及人脸特征点标记按钮，可以动态切换。
 
-#经测试，ArcFace比OpenCV在识别准确性和性能上都要更好。
+经测试，ArcFace比OpenCV在识别准确性和性能上都要更好。
 
-####Demo仅供研究使用，ArcFace是付费SDK，商用需要联系[提供商](https://www.arcsoft.com.cn/)。
+Demo仅供研究使用，ArcFace是付费SDK，商用需要联系[提供商](https://www.arcsoft.com.cn/)。
 
-####如您发现bug，请帮忙提交issue或联系我的邮箱lskyme@sina.com，如果觉得Demo不错，可以star一下，谢谢！
+如您发现bug，请帮忙提交issue或联系我的邮箱lskyme@sina.com，如果觉得Demo不错，可以star一下，谢谢！
 
